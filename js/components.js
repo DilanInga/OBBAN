@@ -44,7 +44,7 @@
 
 
   /* ── ACTIVE LINK según página actual ───────────────────── */
-  const current = window.location.pathname.split('/').pop().replace('.html', '') || 'inicio';
+  const current = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
   document.querySelectorAll('.nav-link[data-page]').forEach(link => {
     if (link.dataset.page === current) {
       link.classList.add('active');
