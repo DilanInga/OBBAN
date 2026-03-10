@@ -1,0 +1,204 @@
+/* ============================================================
+   ACWATT POWER — GLOBAL.CSS
+   Paleta corporativa: Negro profundo, Gris, Azul acero suave
+   Tipografía: Cormorant Garamond (display) + DM Sans (cuerpo)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+/* === VARIABLES === */
+:root {
+  /* Fondo */
+  --bg-deep:      #08090d;
+  --bg-dark:      #0c0e14;
+  --bg-card:      #10131c;
+  --bg-card-hover:#13172280;
+
+  /* Acento — azul acero suave, no neón */
+  --accent:       #5a8fa8;
+  --accent-light: #7aafc8;
+  --accent-dim:   #3d6478;
+  --accent-glow:  rgba(90, 143, 168, 0.12);
+  --accent-border:rgba(90, 143, 168, 0.18);
+
+  /* Texto */
+  --text-primary: #e8ecf0;
+  --text-secondary:#8c95a8;
+  --text-muted:   #4e5668;
+  --text-white:   #f5f7fa;
+
+  /* Bordes */
+  --border-soft:  rgba(255,255,255,0.06);
+  --border-medium:rgba(255,255,255,0.10);
+  --border-accent:rgba(90, 143, 168, 0.25);
+
+  /* Tipografía */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  /* Espaciado */
+  --section-pad:  100px 72px;
+  --max-w:        1240px;
+
+  /* Transiciones */
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* === RESET === */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 2px; }
+
+/* === TIPOGRAFÍA GLOBAL === */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text-white);
+}
+p { color: var(--text-secondary); line-height: 1.75; }
+a { text-decoration: none; color: inherit; }
+
+/* === ETIQUETA DE SECCIÓN === */
+.label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 20px;
+}
+.label::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 12px; height: 1px;
+  background: var(--accent);
+}
+
+/* === TÍTULO DE SECCIÓN === */
+.section-title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+.section-title em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+/* === BOTONES === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  padding: 13px 30px;
+  background: var(--accent);
+  color: var(--bg-deep);
+  font-weight: 600;
+}
+.btn-primary:hover {
+  background: var(--accent-light);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px rgba(90, 143, 168, 0.25);
+}
+
+.btn-outline {
+  padding: 12px 28px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+}
+.btn-outline:hover {
+  border-color: var(--accent-border);
+  color: var(--accent-light);
+}
+
+.btn-ghost {
+  padding: 0;
+  background: transparent;
+  color: var(--accent);
+  font-size: 13px;
+  border-bottom: 1px solid transparent;
+}
+.btn-ghost:hover { border-bottom-color: var(--accent); }
+
+/* === DIVISOR === */
+.divider {
+  width: 40px; height: 1px;
+  background: var(--accent);
+  margin: 24px 0;
+}
+
+/* === ANIMACIONES DE ENTRADA === */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal="left"]  { transform: translateX(-24px); }
+[data-reveal="right"] { transform: translateX(24px); }
+[data-reveal="left"].revealed,
+[data-reveal="right"].revealed { transform: translateX(0); }
+
+/* === BARRA DE PROGRESO DE SCROLL === */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(to right, var(--accent-dim), var(--accent));
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* === RESPONSIVE HELPERS === */
+@media (max-width: 900px) {
+  :root { --section-pad: 72px 32px; }
+}
+@media (max-width: 600px) {
+  :root { --section-pad: 56px 20px; }
+}

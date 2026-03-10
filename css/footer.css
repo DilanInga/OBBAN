@@ -1,0 +1,129 @@
+/* ============================================================
+   ACWATT POWER — FOOTER.CSS
+   ============================================================ */
+
+.site-footer {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea decorativa superior */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 72px; right: 72px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-border), transparent);
+}
+
+/* CUERPO DEL FOOTER */
+.footer-body {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 64px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 72px 72px 56px;
+}
+
+/* Columna marca */
+.footer-brand .nav-logo { margin-bottom: 18px; display: inline-flex; }
+.footer-brand p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 280px;
+  margin-bottom: 28px;
+}
+
+/* Redes sociales */
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+.social-link {
+  width: 34px; height: 34px;
+  border: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.social-link:hover {
+  border-color: var(--accent-border);
+  color: var(--accent-light);
+}
+
+/* Columnas de links */
+.footer-col h5 {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 22px;
+}
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--accent-light); }
+
+/* BARRA INFERIOR */
+.footer-bottom {
+  border-top: 1px solid var(--border-soft);
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 22px 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.footer-bottom p {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+.footer-legal a {
+  font-size: 12px;
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
+.footer-legal a:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .footer-body {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 56px 32px 48px;
+  }
+  .footer-brand { grid-column: span 2; }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 32px;
+    gap: 12px;
+  }
+  .site-footer::before { left: 32px; right: 32px; }
+}
+@media (max-width: 540px) {
+  .footer-body { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: span 1; }
+  .footer-body { padding: 48px 20px 40px; }
+  .footer-bottom { padding: 18px 20px; }
+}

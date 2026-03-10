@@ -1,0 +1,188 @@
+/* ============================================================
+   ACWATT POWER — ESTADISTICAS.CSS
+   ============================================================ */
+
+/* GRANDES CIFRAS */
+.big-numbers {
+  padding: var(--section-pad);
+  border-bottom: 1px solid var(--border-soft);
+}
+.bn-inner { max-width: var(--max-w); margin: 0 auto; }
+.bn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-soft);
+  border: 1px solid var(--border-soft);
+}
+.bn-item {
+  background: var(--bg-card);
+  padding: 48px 40px;
+  position: relative;
+  transition: background 0.3s;
+}
+.bn-item:hover { background: var(--bg-card-hover); }
+.bn-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: width 0.5s var(--ease);
+}
+.bn-item:hover::after { width: 100%; }
+
+.bn-num {
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  font-weight: 300;
+  color: var(--text-white);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.bn-plus {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--accent);
+}
+.bn-item h3 {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin: 16px 0 10px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+.bn-item p { font-size: 13px; line-height: 1.7; }
+
+/* COMPETENCIAS */
+.competencias {
+  padding: var(--section-pad);
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+.comp-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+.comp-bars { display: flex; flex-direction: column; gap: 28px; }
+.comp-bar {}
+.cb-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.cb-label span { font-size: 13px; color: var(--text-secondary); }
+.cb-label strong {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+}
+.cb-track {
+  height: 2px;
+  background: var(--border-soft);
+  overflow: hidden;
+}
+.cb-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(to right, var(--accent-dim), var(--accent));
+  transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+}
+.cb-fill::after {
+  content: '';
+  position: absolute;
+  right: -1px; top: -3px;
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--accent);
+}
+
+/* TIMELINE */
+.timeline-section {
+  padding: var(--section-pad);
+}
+.tl-inner { max-width: var(--max-w); margin: 0 auto; }
+.tl-header { margin-bottom: 64px; }
+
+.timeline {
+  position: relative;
+  padding-left: 200px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 172px; top: 0; bottom: 0;
+  width: 1px;
+  background: var(--border-soft);
+}
+
+.tl-item {
+  position: relative;
+  padding: 0 0 56px 48px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: start;
+  gap: 0 32px;
+}
+.tl-item:last-child { padding-bottom: 0; }
+
+.tl-year {
+  position: absolute;
+  left: -200px;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+.tl-dot {
+  position: absolute;
+  left: -12px;
+  top: 8px;
+  width: 9px; height: 9px;
+  background: var(--bg-deep);
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+.tl-item:hover .tl-dot { background: var(--accent); }
+
+.tl-body {}
+.tl-body h4 {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.tl-body p { font-size: 14px; line-height: 1.7; max-width: 480px; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .bn-grid { grid-template-columns: repeat(2, 1fr); }
+  .comp-inner { grid-template-columns: 1fr; gap: 48px; }
+  .timeline { padding-left: 80px; }
+  .timeline::before { left: 52px; }
+  .tl-year { left: -80px; font-size: 1.1rem; }
+}
+@media (max-width: 600px) {
+  .bn-grid { grid-template-columns: 1fr; }
+  .bn-item { padding: 32px 24px; }
+  .timeline { padding-left: 32px; }
+  .timeline::before { left: 4px; }
+  .tl-year { display: none; }
+  .tl-dot { left: -19px; }
+}

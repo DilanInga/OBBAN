@@ -1,0 +1,169 @@
+/* ============================================================
+   ACWATT POWER — PROYECTOS.CSS
+   ============================================================ */
+
+.projects-section {
+  padding: var(--section-pad);
+}
+.ps-inner { max-width: var(--max-w); margin: 0 auto; }
+
+/* FILTROS */
+.ps-filters {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 52px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 10px 22px;
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+.filter-btn:hover {
+  border-color: var(--accent-border);
+  color: var(--text-primary);
+}
+.filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-deep);
+}
+
+/* GRID */
+.ps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* CARD */
+.proj-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.35s;
+  cursor: default;
+}
+.proj-card:hover { border-color: var(--accent-border); }
+.proj-card--wide { grid-column: span 2; }
+
+/* THUMBNAIL ABSTRACTO */
+.proj-thumb {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+.proj-card--wide .proj-thumb { height: 220px; }
+
+.proj-t1 { background: linear-gradient(135deg, #080f1a, #0c1e2c); }
+.proj-t2 { background: linear-gradient(135deg, #0a0c14, #111620); }
+.proj-t3 { background: linear-gradient(135deg, #080e18, #0d1928); }
+.proj-t4 { background: linear-gradient(135deg, #06101a, #0a1c28); }
+.proj-t5 { background: linear-gradient(135deg, #090b12, #10141e); }
+.proj-t6 { background: linear-gradient(135deg, #08101c, #0c1a24); }
+
+.proj-t1::after {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(circle at 60% 40%, rgba(90,143,168,0.18), transparent 60%),
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(90,143,168,0.05) 20px, rgba(90,143,168,0.05) 22px);
+}
+.proj-t2::after {
+  content:''; position:absolute; inset:0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(90,143,168,0.06) 25px),
+    repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(90,143,168,0.06) 25px);
+}
+.proj-t3::after {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(90,143,168,0.14), transparent 55%),
+    radial-gradient(ellipse at 70% 50%, rgba(90,143,168,0.08), transparent 40%);
+}
+.proj-t4::after {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(circle at 50% 60%, rgba(90,143,168,0.2), transparent 55%),
+    repeating-conic-gradient(rgba(90,143,168,0.03) 0deg, transparent 8deg, transparent 24deg);
+}
+.proj-t5::after {
+  content:''; position:absolute; inset:0;
+  background: repeating-linear-gradient(-30deg, transparent, transparent 16px, rgba(90,143,168,0.05) 16px, rgba(90,143,168,0.05) 18px);
+}
+.proj-t6::after {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(circle at 40% 40%, rgba(90,143,168,0.15), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(90,143,168,0.08), transparent 40%);
+}
+
+.proj-thumb::before {
+  content:''; position:absolute; bottom:0; left:0; right:0;
+  height:80px;
+  background: linear-gradient(to top, var(--bg-card), transparent);
+  z-index:1;
+}
+.proj-cat {
+  position: absolute;
+  top: 16px; left: 16px;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  border: 1px solid var(--accent-border);
+  background: rgba(8,9,13,0.6);
+  padding: 4px 10px;
+  backdrop-filter: blur(4px);
+}
+
+/* INFO */
+.proj-info {
+  padding: 24px 28px 28px;
+}
+.proj-meta {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.proj-year {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+.proj-type {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+.proj-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.proj-info p { font-size: 13px; line-height: 1.7; margin-bottom: 20px; }
+
+/* OCULTAR/MOSTRAR AL FILTRAR */
+.proj-card.hidden {
+  opacity: 0.15;
+  pointer-events: none;
+  transform: scale(0.98);
+}
+.proj-card { transition: opacity 0.3s, transform 0.3s, border-color 0.3s; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .ps-grid { grid-template-columns: repeat(2, 1fr); }
+  .proj-card--wide { grid-column: span 2; }
+}
+@media (max-width: 600px) {
+  .ps-grid { grid-template-columns: 1fr; }
+  .proj-card--wide { grid-column: span 1; }
+}

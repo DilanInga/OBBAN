@@ -1,0 +1,149 @@
+/* ============================================================
+   ACWATT POWER — SERVICIOS.CSS
+   ============================================================ */
+
+/* PAGE HERO (reutilizado en todas las páginas internas) */
+.page-hero {
+  padding: 180px 72px 80px;
+  border-bottom: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 40%; height: 100%;
+  background: radial-gradient(ellipse at right top, rgba(90,143,168,0.06), transparent 60%);
+  pointer-events: none;
+}
+.ph-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.page-title {
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 300;
+  margin: 12px 0 20px;
+  letter-spacing: -0.03em;
+}
+.page-title em { font-style: italic; color: var(--accent-light); }
+.ph-inner p { font-size: 16px; max-width: 560px; line-height: 1.8; }
+
+/* SERVICES LIST */
+.services-list { padding: var(--section-pad); }
+.sl-inner { max-width: var(--max-w); margin: 0 auto; }
+
+.svc-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 320px;
+  gap: 56px;
+  align-items: start;
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.svc-row--reverse {
+  grid-template-columns: 200px 1fr 320px;
+}
+.svc-row:first-child { padding-top: 0; }
+
+.svc-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+}
+.svc-num {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.svc-content h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+.svc-content h2 em { font-style: italic; color: var(--accent-light); }
+.svc-content > p { font-size: 15px; margin-bottom: 24px; line-height: 1.8; }
+
+.svc-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.svc-features li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding-left: 20px;
+  position: relative;
+}
+.svc-features li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+/* VISUAL ABSTRACTO POR SERVICIO */
+.svc-visual {
+  height: 220px;
+  border: 1px solid var(--border-soft);
+  background: var(--bg-card);
+  position: relative;
+  overflow: hidden;
+  align-self: center;
+}
+.svc-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+}
+.svc-v1::after {
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(90,143,168,0.08) 20px),
+    repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(90,143,168,0.08) 20px);
+}
+.svc-v2::after {
+  background: radial-gradient(circle at 50% 40%, rgba(90,143,168,0.18), transparent 60%),
+              repeating-conic-gradient(rgba(90,143,168,0.04) 0deg, transparent 10deg, transparent 30deg);
+}
+.svc-v3::after {
+  background:
+    repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(90,143,168,0.07) 14px, rgba(90,143,168,0.07) 16px);
+}
+.svc-v4::after {
+  background:
+    radial-gradient(circle at 20% 80%, rgba(90,143,168,0.12), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(90,143,168,0.08), transparent 40%);
+}
+.svc-v5::after {
+  background:
+    repeating-linear-gradient(-45deg, transparent, transparent 14px, rgba(90,143,168,0.06) 14px, rgba(90,143,168,0.06) 16px),
+    radial-gradient(circle at 60% 60%, rgba(90,143,168,0.1), transparent 50%);
+}
+.svc-visual::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--accent-dim), transparent);
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .page-hero { padding: 160px 32px 64px; }
+  .svc-row { grid-template-columns: 1fr; gap: 28px; }
+  .svc-meta { flex-direction: row; align-items: center; }
+  .svc-num { font-size: 2.8rem; }
+  .svc-visual { height: 160px; }
+}
+@media (max-width: 600px) {
+  .page-hero { padding: 140px 20px 48px; }
+}
